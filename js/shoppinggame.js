@@ -15,10 +15,10 @@ const player = {
         return this.score;
     },
     deductPoints(points) {
-        return getCurrentScore() - points;
+        return this.score - points;
     },
     addPoints(points) {
-        return getCurrentScore() + points;
+        return this.score + points;
     }
 
 };
