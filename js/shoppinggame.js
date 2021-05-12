@@ -24,22 +24,23 @@ const player = {
 };
 
 // Define the Product class - write the Constructor function for Product class here
-const Product = {
-    constructor(id, name, price, expiryDate) {
+function Product(id, name, price, expiryDate) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.expiryDate = expiryDate;
-    }
-};
+}
+
 // Complete the dateDiff function
 const dateDiff = (date1, date2) => {
     return (date1.getTime() - date2.getTime()) * 1000 * 60 * 60 * 24;
  };
 
- console.log(dateDiff(new Date(), new Date()));
+
 
 // Here, use Object.defineProperty to create property - daysToExpire
+Object.defineProperty(Product, 'daysToExpire');
+Product.daysToExpire = () => {};
 
 // Add method getDetails to Product here
 
@@ -349,6 +350,7 @@ function main() {
 
 
 
+const { get } = require("http");
 ///////////////////////////////////////////////////////////////
 const readline = require("readline");
 require('colors');
