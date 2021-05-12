@@ -33,7 +33,8 @@ function Product(id, name, price, expiryDate) {
 
 // Complete the dateDiff function
 const dateDiff = (date1, date2) => {
-    return (date1.getTime() - date2.getTime()) * 1000 * 3600 * 24;
+    let timeDiff = Math.abs(dat2.getTime() - date1.getTime());
+    let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
  };
 
 // Here, use Object.defineProperty to create property - daysToExpire
@@ -44,7 +45,7 @@ Object.defineProperty(Product.prototype, 'daysToExpire', {
 });
 
 // Add method getDetails to Product here
-Product.prototype.getDetails = () => {
+Product.prototype.getDetails = function() {
     return `Product Name: ${this.name} , Product Price: ${this.price}`;
 };
 
