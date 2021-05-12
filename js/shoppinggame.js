@@ -84,6 +84,7 @@ const loadProducts = (map, prodId) => {
     try {
         // Call Object.keys() to load the property names of the Product object in to prodKeys array here
         let prodKeys = Object.keys(new Product());
+        console.log(prodKeys)
 
         let iterator_obj = map.entries();
 
@@ -93,7 +94,7 @@ const loadProducts = (map, prodId) => {
                 const value = item[1];
 
                 // Create and assign an instance of Product to prodObj here
-                let prodObj = new Product();
+                let prodObj = new Product ();
 
                 if (prodObj != undefined && prodObj != null) {
                     for (let i = 0; i < prodKeys.length; i++) {
@@ -120,6 +121,7 @@ const loadProducts = (map, prodId) => {
         return a;
     }
 };
+
 
 
 // Complete the loadMagicProducts function
@@ -219,14 +221,14 @@ function loadMasterData() {
 
 // Complete this function
 const findProductById = (id) => {
-    return function (product) {
-        return product.id == id;
+    return (productInstance) => {
+        return productInstance.id === id;
     }
 };
 
 // Complete this function
 const generateProductId = () => {
-    return Math.floor(Math.random() * 20) + 1;
+    return (Math.random() * 20) + 1;
 };
 
 
@@ -260,22 +262,12 @@ const findPointsToBill = (roundedTotal) => {
 
 
 // Complete this function
-const findPointsForExpDate = (prod) => {
-    return prod.daysToExpire < 30 ? 10 : 0;
-};
+const findPointsForExpDate = (prod) => {};
 
 
 const calculatePoints = (prod, tBill) => {
     let pointsToBill = findPointsToBill(Math.round(tBill));
     let pointsForExpDate = findPointsForExpDate(prod);
-    player.score = player.score + pointsToBill + pointsForExpDate;
-    if (prod instanceof MagicProduct) {
-        if (prod.isBonus) {
-            player.addPoints(prod.points);
-        } else {
-            player.deductPoints(prod.points);
-        }
-    }
 };
 
 // Complete this function
@@ -447,5 +439,3 @@ function init(data) {
     exports.exitLost = exitLost;
     exports.exitWon = exitWon;
     exports.main = main;
-
-
