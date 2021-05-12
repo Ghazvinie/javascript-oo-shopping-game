@@ -56,7 +56,7 @@ function MagicProduct(id, name, price, expiryDate, points, bonus){
 }
 
 // Establish inheritance between Product() & MagicProduct() here
-MagicProduct.prototype = Object.creare(Product.prototype);
+MagicProduct.prototype = Object.create(Product.prototype);
 
 // Define Rating class here
 class Rating {
