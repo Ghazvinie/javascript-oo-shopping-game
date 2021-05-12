@@ -84,7 +84,6 @@ const loadProducts = (map, prodId) => {
     try {
         // Call Object.keys() to load the property names of the Product object in to prodKeys array here
         let prodKeys = Object.keys(new Product());
-        console.log(prodKeys)
 
         let iterator_obj = map.entries();
 
@@ -94,7 +93,7 @@ const loadProducts = (map, prodId) => {
                 const value = item[1];
 
                 // Create and assign an instance of Product to prodObj here
-                let prodObj = new Product ();
+                let prodObj = new Product();
 
                 if (prodObj != undefined && prodObj != null) {
                     for (let i = 0; i < prodKeys.length; i++) {
@@ -121,7 +120,6 @@ const loadProducts = (map, prodId) => {
         return a;
     }
 };
-
 
 
 // Complete the loadMagicProducts function
@@ -221,14 +219,14 @@ function loadMasterData() {
 
 // Complete this function
 const findProductById = (id) => {
-    return (productInstance) => {
-        return productInstance.id === id;
+    return function (product) {
+        return product.id == id;
     }
 };
 
 // Complete this function
 const generateProductId = () => {
-    return (Math.random() * 20) + 1;
+    return Math.floor(Math.random() * 20) + 1;
 };
 
 
@@ -262,7 +260,9 @@ const findPointsToBill = (roundedTotal) => {
 
 
 // Complete this function
-const findPointsForExpDate = (prod) => {};
+const findPointsForExpDate = (prod) => {
+    return prod.daysToExpire < 30 ? 10 : 0;
+};
 
 
 const calculatePoints = (prod, tBill) => {
