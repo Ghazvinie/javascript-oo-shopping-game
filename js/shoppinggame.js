@@ -123,6 +123,7 @@ const loadProducts = (map, prodId) => {
 };
 
 
+
 // Complete the loadMagicProducts function
 const loadMagicProducts = (map, prodId) => {
     let a = new Array();
